@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import Header from '../../Components/Header'
+import People from '../../Components/People'
 import './Home.css'
 
 const Home = () => {
@@ -9,11 +10,48 @@ const Home = () => {
         sessionStorage.removeItem('@AuthFirebase:user');
         setIsLogged(sessionStorage.getItem('@AuthFirebase:user'))
     }
+
+    const [loading, setLoading] = useState(true)
+    const [people, setPeople] = useState([])
+
+    const getPeople = async () => {
+        try {
+            const data = await fetch('https://63471b7bdb76843976a667ae.mockapi.io/peoples')
+            const json = await data.json()
+            setPeople(json)
+            console.log(json);
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+    
+    useEffect(() => {
+        getPeople()
+    }, [loading])
+
     if (!!isLogged) {
+        if (loading) {
+            <div>
+                <Header 
+                function={singOut}
+                />
+                <p>Loading...</p>
+            </div>
+        }
         return (
-            <Header 
-            function={singOut}
-            />
+            <div>
+                <Header 
+                function={singOut}
+                />
+                <People 
+                rows={people.map(people => <tr className='prople__row'>
+                <th className='prople__iten'>{people.id}</th>
+                <th className='prople__iten'>{people.name}</th>
+                <th className='prople__iten'>{people.email}</th>
+                <th className='prople__iten'>{people.birthDate}</th>
+                <th className='prople__iten'>{people.id}</th>
+            </tr>)}/>
+            </div>
         )
     }else {
         return(
