@@ -10,15 +10,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
 :root {
-  --azul-claro: #e6faff;
-  --azul:#00b0e6;
-  --azul-escuro: #007599;
-  --azul-extra-escuro:#002733;
-  --branco: #fff
+  --light-blue: #e6faff;
+  --blue:#00b0e6;
+  --dark-blue: #007599;
+  --extra-dark-blue:#002733;
+  --white: #fff
 }
 
 body {
-  background-color: var(--azul-claro);
+  background-color: var(--light-blue);
   margin: 0;
   font-family: 'Nunito Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
