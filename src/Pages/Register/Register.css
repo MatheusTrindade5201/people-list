@@ -1,0 +1,29 @@
+.user__message {
+    height: calc(100vh - 170px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.user__message-text {
+    font-size: 3rem;
+}
+
+.return__button {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    font-size: 1rem;
+    padding: 1rem;
+    transition: .2s;
+    text-align: center;
+    border: 1px solid var(--extra-dark-blue);
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.return__button:hover {
+    background-color: var(--blue);
+}

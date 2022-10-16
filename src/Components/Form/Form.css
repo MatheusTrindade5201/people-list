@@ -52,3 +52,7 @@
     font-weight: 600;
 }
 
+.form__error {
+    background-color: #fff0e6;
+    padding: .5rem;
+}
