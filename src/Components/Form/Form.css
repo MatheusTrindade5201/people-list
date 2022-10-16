@@ -53,6 +53,6 @@
 }
 
 .form__error {
-    background-color: #fff0e6;
+    background-color: var(--light-red);
     padding: .5rem;
 }

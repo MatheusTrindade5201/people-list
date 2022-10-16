@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 const Register = () => {
 
     const [email, setEmail] = useState('');
-    const [password, setPasswor] = useState('');
+    const [password, setPassword] = useState('');
 
     const [
     createUserWithEmailAndPassword,
@@ -30,7 +30,7 @@ const Register = () => {
             route={'/'}
             route_text={'I already have an account'}
             typingEmail={value => setEmail(value)}
-            typingPassword={value => setPasswor(value)}
+            typingPassword={value => setPassword(value)}
             button_function={signUp}
             error={<p className='form__error'>{error.message}</p>}
             />
@@ -45,7 +45,7 @@ const Register = () => {
             <div className='sign'>
                 <div className='user__message'>
                 <h1 className='user__message-text'>User registered with success!</h1>
-                <NavLink className='return__button' to={'/'}>Sing In</NavLink>
+                <NavLink className='return__button' to={'/Home'}>Sing In</NavLink>
                 </div>
              </div>
         );
@@ -59,7 +59,7 @@ const Register = () => {
             route={'/'}
             route_text={'I already have an account'}
             typingEmail={value => setEmail(value)}
-            typingPassword={value => setPasswor(value)}
+            typingPassword={value => setPassword(value)}
             button_function={signUp}
             />
         </div>

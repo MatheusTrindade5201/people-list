@@ -1,0 +1,21 @@
+.header {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 2rem 5vw;
+    background: var(--extra-dark-blue-2);
+    color: var(--white);
+}
+
+.header__title {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.header__signOut {
+    padding: .5rem 1rem;
+    background-color: var(--white);
+    border-radius: 8px;
+    font-weight: 600;
+}

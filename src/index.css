@@ -14,7 +14,9 @@
   --blue:#00b0e6;
   --dark-blue: #007599;
   --extra-dark-blue:#002733;
-  --white: #fff
+  --extra-dark-blue-2:#00141a;
+  --white: #fff;
+  --light-red:#fff0e6;
 }
 
 body {
