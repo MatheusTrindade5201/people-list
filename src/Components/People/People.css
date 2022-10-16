@@ -1,0 +1,19 @@
+.people{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.people__table, .prople__row, .prople__header, .prople__iten {
+    border: 1px solid #000;
+}
+
+.prople__row, .prople__header, .prople__iten {
+    padding: .5rem;
+}
+
+.prople__header {
+    background-color: var(--extra-dark-blue-2);
+    color: var(--white);
+    font-weight: 600;
+}
