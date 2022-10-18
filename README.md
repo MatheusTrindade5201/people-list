@@ -1,70 +1,203 @@
-# Getting Started with Create React App
+# People List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esse é um projeto CRUD desenvolvido com React.js e com Firebase para o serviço de autentificação, que tem como objetivo permitir que o usuário veja uma lista de pessoas, e tenha a opção de deletar, incluir ou editar alguém.
+  
+- [x] Visualizar lista.
+- [x] Se autentificar via login ou se cadastrar.
+- [x] Editar, deletar ou incluir alguém a lista.
+- [x] Deslogar.
+- [ ] Responsivo (Em desenvolvimento)
 
-## Available Scripts
 
-In the project directory, you can run:
+  - Link do Site-solução: [People List](https://people-list-henna.vercel.app/Edit/1) 
 
-### `npm start`
+## Preview do produto final
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![Captura de tela 2022-10-18 072253](https://user-images.githubusercontent.com/104238483/196406095-818f86c1-9da6-41f7-8c8c-a7e131c8cc8a.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### Lista de pessoas:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Captura de tela 2022-10-18 072328](https://user-images.githubusercontent.com/104238483/196406116-f37822dd-17e1-4082-98de-e1153575ed1e.png)
 
-### `npm run build`
+### Opções de edição e inclusão: 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Captura de tela 2022-10-18 072345](https://user-images.githubusercontent.com/104238483/196406252-0fa159ba-4098-40b7-976c-87865cd523f1.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Captura de tela 2022-10-18 072917](https://user-images.githubusercontent.com/104238483/196406315-c76d0c68-4f59-4061-98dd-72cac73488d4.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Detalhes do projeto: 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### O projeto foi desenvolvido com react-router-dom para a roteirização das páginas
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+const RouterApp = () => {
+    
+        return (
+            <BrowserRouter>
+                <Routes>
+                <Route element={<Login/>} path='/' exact/>
+                <Route element={<Register />} path='/Register' />
+                <Route element={<Home />} path='/Home' />
+                <Route element={<Edit />} path='/Edit/:id' />
+                <Route element={<Add />} path='/Add' />
+                </Routes>
+            </BrowserRouter>
+        )
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Acima temos o Route para o <Edit /> que recebe um path com o ID de forma dinâmica para abrir o usuário e exibir as informação do mesmo em especifico.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Para a autentificação, foi usado o firebase, junto cum a biblioteca firebase-hooks:
 
-## Learn More
+##### Configuração do firebase:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+const AuthConfig = firebase.initializeApp({
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID
+});
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+export const auth = getAuth(AuthConfig)
+```
 
-### Code Splitting
+##### Login:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-### Analyzing the Bundle Size
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    const signIn = () => {
+        signInWithEmailAndPassword(email, password)
+    }
+```
 
-### Making a Progressive Web App
+##### Cadastro:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-### Advanced Configuration
+    const [
+    createUserWithEmailAndPassword,
+    user,
+    loading,
+    error,
+    ] = useCreateUserWithEmailAndPassword(auth);
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    const signUp = () => {
+        createUserWithEmailAndPassword(email, password)
+    }
+```
 
-### Deployment
+#### Metodos para a lista: Utilizamos o Mocki API para o projeto, onde podemos fazer todos os tipos de requisições, neste projetos foi utilizado: DELETE, POST, PUT, GET.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Para as requisições HTTP, utilizamos o metodo fetch():
 
-### `npm run build` fails to minify
+##### GET:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+const addPeople = async () => {
+        if(name.length > 2 && emailRegex.test(email) && birthRegex.test(birth)){
+        setLoading(true)
+        await fetch('https://63471b7bdb76843976a667ae.mockapi.io/peoples',{
+            method:'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                birthDate: birth
+            }) 
+        })
+        setAdded(true)    
+    }else{
+        alert("Dados invalidos!  \n Nome: Pelo menos 2 caracteres. \n Email: email@domain.com. \n Birth Date: dd/mm/yyyy")
+    }
+    }
+```
+Para adicionar uma pessoa, foi usado uma validação dos campos preenchidos.
+
+##### POST:
+
+```
+const getPeople = async () => {
+        try {
+            const data = await fetch('https://63471b7bdb76843976a667ae.mockapi.io/peoples')
+            const json = await data.json()
+            setPeople(json)
+            setLoading(false)
+            console.log(json);
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+```
+
+##### PUT:
+
+```
+const editPeople = async () => {
+        const data = {
+            name: name,
+            email: email,
+            birthDate: birth
+        }
+        await fetch (`https://63471b7bdb76843976a667ae.mockapi.io/peoples/${id}`, {
+            method:'PUT',
+            headers: {
+                'Content-type': 'application/json'
+              },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                birthDate: birth
+            })
+        })
+        .then(
+            setEdited(true)
+        )
+    }
+```
+
+##### DELETE:
+
+```
+const deletePeople = async () =>{
+        await fetch (`https://63471b7bdb76843976a667ae.mockapi.io/peoples/${id}`, {
+            method:'DELETE'
+        })
+        .then(
+            setDeleted(true)
+        )
+    }
+```
+
+#### Hooks
+
+Para o controle de renderização da página e chamada da API, usamos os Hooks useState e useEffect. E Para trabalhar com a rota dinamica, utilizamos o useParams para captar o valor do id do objeto
+
+#### Desenvolvimento 
+
+Caso queira fazer o clone do repositório, por favor usar o comando abaixo para download das dependencias:
+```
+npm intall
+```
+
+Será necessário criar suas proprias chaves para o firebase para configuração.
+
+
