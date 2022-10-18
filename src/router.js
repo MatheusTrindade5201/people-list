@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, BrowserRouter, Routes } from "react-router-dom"
+import Add from './Pages/Add'
 import Edit from './Pages/Edit'
 import Home from './Pages/Home'
 import Login from './Pages/Login'
@@ -14,6 +15,7 @@ const RouterApp = () => {
                 <Route element={<Register />} path='/Register' />
                 <Route element={<Home />} path='/Home' />
                 <Route element={<Edit />} path='/Edit/:id' />
+                <Route element={<Add />} path='/Add' />
                 </Routes>
             </BrowserRouter>
         )
