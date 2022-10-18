@@ -3,7 +3,7 @@ import Form from '../../Components/Form'
 import './Login.css'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Navigate, NavLink } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -42,12 +42,7 @@ const Login = () => {
       if (user) {
         sessionStorage.setItem('@AuthFirebase:user', JSON.stringify(user))
         return (
-        <div className='sign'>
-            <div className='user__message'>
-            <h1 className='user__message-text'>Signed in with success!</h1>
-            <NavLink className='return__button' to={'/Home'}>Explore!</NavLink>
-            </div>
-         </div>
+        <Navigate to={'/Home'} />
         );
       }
 
