@@ -19,6 +19,7 @@ const Home = () => {
             const data = await fetch('https://63471b7bdb76843976a667ae.mockapi.io/peoples')
             const json = await data.json()
             setPeople(json)
+            setLoading(false)
             console.log(json);
         } catch (error) {
             console.log(error.message);
@@ -44,12 +45,12 @@ const Home = () => {
                 function={singOut}
                 />
                 <People 
-                rows={people.map(people => <tr className='prople__row'>
+                rows={people.map(people => <tr key={people.id} className='prople__row'>
                 <th className='prople__iten'>{people.id}</th>
                 <th className='prople__iten'>{people.name}</th>
                 <th className='prople__iten'>{people.email}</th>
                 <th className='prople__iten'>{people.birthDate}</th>
-                <th className='prople__iten'>{people.id}</th>
+                <th className='prople__iten'><NavLink to={`/Edit/${people.id}`} >Edit</NavLink></th>
             </tr>)}/>
             </div>
         )

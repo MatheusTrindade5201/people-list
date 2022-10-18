@@ -3,7 +3,7 @@ import Form from '../../Components/Form'
 import './Login.css'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useState } from 'react';
-import { Navigate, NavLink } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
