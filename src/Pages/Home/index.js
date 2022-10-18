@@ -44,14 +44,16 @@ const Home = () => {
                 <Header 
                 function={singOut}
                 />
-                <People 
-                rows={people.map(people => <tr key={people.id} className='prople__row'>
-                <th className='prople__iten'>{people.id}</th>
-                <th className='prople__iten'>{people.name}</th>
-                <th className='prople__iten'>{people.email}</th>
-                <th className='prople__iten'>{people.birthDate}</th>
-                <th className='prople__iten'><NavLink className='people__edit' to={`/Edit/${people.id}`} >Edit</NavLink></th>
-            </tr>)}/>
+                <div className='home__table'>
+                    <People 
+                    rows={people.map(people => <tr key={people.id} className='prople__row'>
+                    <th className='prople__iten'>{people.name}</th>
+                    <th className='prople__iten'>{people.email}</th>
+                    <th className='prople__iten'>{people.birthDate}</th>
+                    <th className='prople__iten'><NavLink className='people__edit' to={`/Edit/${people.id}`} >Edit</NavLink></th>
+                    </tr>)}/>
+                    <NavLink className='add__button' to={'/Add'}>Add</NavLink>
+                </div>
             </div>
         )
     }else {

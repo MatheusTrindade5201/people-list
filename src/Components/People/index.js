@@ -7,7 +7,6 @@ const People = (props) => {
             <table className='people__table'>
                 <thead className='prople__row'>
                     <tr>
-                        <th className='prople__header'>Id</th>
                         <th className='prople__header'>Name</th>
                         <th className='prople__header'>Email</th>
                         <th className='prople__header'>Birth Date</th>
