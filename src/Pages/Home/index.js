@@ -50,7 +50,7 @@ const Home = () => {
                 <th className='prople__iten'>{people.name}</th>
                 <th className='prople__iten'>{people.email}</th>
                 <th className='prople__iten'>{people.birthDate}</th>
-                <th className='prople__iten'><NavLink to={`/Edit/${people.id}`} >Edit</NavLink></th>
+                <th className='prople__iten'><NavLink className='people__edit' to={`/Edit/${people.id}`} >Edit</NavLink></th>
             </tr>)}/>
             </div>
         )

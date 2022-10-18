@@ -6,6 +6,7 @@
 
 .people__table, .prople__row, .prople__header, .prople__iten {
     border: 1px solid #000;
+    background-color: var(--white);
 }
 
 .prople__row, .prople__header, .prople__iten {
@@ -16,4 +17,21 @@
     background-color: var(--extra-dark-blue-2);
     color: var(--white);
     font-weight: 600;
+}
+
+.people__edit {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    font-size: .9rem;
+    padding: .2rem .5rem;
+    transition: .2s;
+    text-align: center;
+    border: 1px solid var(--extra-dark-blue);
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.people__edit:hover {
+    background-color: var(--blue);
 }
