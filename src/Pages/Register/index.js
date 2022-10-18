@@ -45,7 +45,7 @@ const Register = () => {
             <div className='sign'>
                 <div className='user__message'>
                 <h1 className='user__message-text'>User registered with success!</h1>
-                <NavLink className='return__button' to={'/Home'}>Sing In</NavLink>
+                <NavLink className='home__button' to={'/Home'}>Sing In</NavLink>
                 </div>
              </div>
         );
