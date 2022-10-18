@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, BrowserRouter, Routes } from "react-router-dom"
+import Edit from './Pages/Edit'
 import Home from './Pages/Home'
 import Login from './Pages/Login'
 import Register from './Pages/Register'
@@ -12,6 +13,7 @@ const RouterApp = () => {
                 <Route element={<Login/>} path='/' exact/>
                 <Route element={<Register />} path='/Register' />
                 <Route element={<Home />} path='/Home' />
+                <Route element={<Edit />} path='/Edit/:id' />
                 </Routes>
             </BrowserRouter>
         )

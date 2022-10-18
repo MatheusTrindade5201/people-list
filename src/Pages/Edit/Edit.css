@@ -1,0 +1,48 @@
+.return__button, .action__button {
+        background-color: var(--dark-blue);
+        color: var(--white);
+        font-size: .9rem;
+        padding: .2rem .5rem;
+        transition: .2s;
+        text-align: center;
+        border: 1px solid var(--extra-dark-blue);
+        border-radius: 6px;
+        font-weight: 600;
+        text-decoration: none;
+        margin: 1rem 0 0 2rem;
+}
+
+.action__button {
+    padding: .2rem 1rem;
+}
+
+.delete {
+    background-color: var(--dark-red);
+}
+
+
+    
+.return__button:hover, .action__button:hover {
+        background-color: var(--blue);
+}
+
+.delete:hover {
+    background-color: var(--red);
+}
+
+.page {
+    height: calc(100vh - 131px) ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 5vw;
+}
+
+.page__infos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    border: 1px solid var(--dark-blue);
+    border-radius: 8px;
+}

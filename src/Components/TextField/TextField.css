@@ -1,0 +1,13 @@
+.text__field-label {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-weight: 800;
+}
+
+.text__field {
+    padding: .5rem;
+    border-radius: 5px;
+    border: 1px solid var(--blue);
+    font-weight: 500;
+}
